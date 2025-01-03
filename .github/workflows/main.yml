@@ -39,7 +39,7 @@ jobs:
 
     - name: SSH into EC2 and Deploy Docker Container
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} << EOF
+        ssh -o StrictHostKeyChecking=no ubuntu@3.109.54.60 << EOF
         sudo docker stop apache-container || true
         sudo docker rm apache-container || true
         sudo docker pull girishcloudlab/my-apache-app:latest
