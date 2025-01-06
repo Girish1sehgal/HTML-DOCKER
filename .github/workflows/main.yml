@@ -44,4 +44,7 @@ jobs:
         sudo docker rm apache-container || true
         sudo docker pull girishcloudlab/my-apache-app:latest
         sudo docker run -d --name apache-container -p 80:80 girishcloudlab/my-apache-app:latest
+
+       # Cleanup old Docker images
+       sudo docker system prune -a -f || true
         EOF
