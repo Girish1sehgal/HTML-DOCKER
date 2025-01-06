@@ -35,11 +35,11 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H 3.109.54.60 >> ~/.ssh/known_hosts
+        ssh-keyscan -H 13.201.23.43  >> ~/.ssh/known_hosts
 
     - name: SSH into EC2 and Deploy Docker Container
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@3.109.54.60 << EOF
+        ssh -o StrictHostKeyChecking=no ubuntu@13.201.23.43  << EOF
         sudo docker stop apache-container || true
         sudo docker rm apache-container || true
         sudo docker pull girishcloudlab/my-apache-app:latest
